@@ -1,9 +1,12 @@
 import React from "react";
 import axios from "../utils/axiosInstance";
+import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHome, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
-import styled from "styled-components" 
-import Center from "../components/Center"
+import styled from "styled-components"
+import { Input, Button } from "antd";
+import Comment from "../components/Comment";
+import Frame from "../components/Frame";
 
 const Header = styled.div`
   background: #1163B1;
@@ -45,16 +48,49 @@ const StyledFAI = styled(FontAwesomeIcon)`
 class Town extends React.Component {
   state = {
     location: {},
+    comment: {},
+    comments: [],
   }
 
   componentDidMount () {
     axios.get(`/locations/${this.props.match.params.id}`).then(res => {
       this.setState({ location: res.data })
     })
+    axios.get('/comments/', { location: this.props.match.params.id }).then(res => {
+      this.setState({ comments: res.data.sort((a, b) => moment(b.created) - moment(a.created))})
+    })
+  }
+
+  submitComment = () => {
+    axios.post("/comments/", {
+      comment: this.state.comment,
+      location: this.props.match.params.id
+    }).then((res) => {
+      this.setState((oldState) => {
+        return {
+          comments: [res.data, ...oldState.comments],
+        }
+      })
+    })
+  }
+
+  report = (comment) => {
+    axios.patch(`/comments/report/${comment._id}`).then((res) => {
+      this.setState((oldState) => {
+        const index = oldState.comments.indexOf(res.data);
+        if (index !== -1) {
+          const newComments = [...oldState.comments];
+          newComments[index] = res.data;
+          return {
+            comments: newComments
+          }
+        }
+      })
+    })
   }
 
   render() {
-    const { location } = this.state;
+    const { location, comments } = this.state;
 
     return (
       <>
@@ -66,8 +102,16 @@ class Town extends React.Component {
             <InfoText><StyledFAI icon={faPhone}/><a href={`tel:${location.fax}`}>{location.fax}</a></InfoText>
           </InfoHeader>
         </SneakyBackground>
-        
-        
+        <Frame>
+          <Input.TextArea
+            placeholder={`Know something we dont? Submit a comment for ${location.city}`}
+            onChange={({target: { value }}) => this.setState({ comment: value })}>
+          </Input.TextArea>
+          <Button onClick={this.submitComment}>
+            Post
+          </Button>
+          {comments.map(comment => <Comment comment={comment} report={() => this.report(comment)}/>)}
+        </Frame>
         {/* town information */}
         {/* comments section? */}
         
