@@ -6,7 +6,7 @@ import Landing from "./pages/Landing";
 import Town from "./pages/Town";
 import { SessionProvider } from "./components/SessionContext";
 import 'antd/dist/antd.css';
-import './styles/common.scss';
+import './styles/common.css';
 
 const { Content, Footer } = Layout;
 

@@ -31,4 +31,4 @@ jobs:
         app-name: 'ballot-drop-ma'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_01780ad060d84d66b4d9aedeb03cfa0a }}
-        package: .
+        package: ./build
