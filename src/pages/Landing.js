@@ -14,6 +14,7 @@ const { Option } = Select;
 const Opener = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
   margin-bottom: 20px;
   flex-wrap: wrap;
   width: 100%;

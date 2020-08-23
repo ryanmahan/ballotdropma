@@ -21,6 +21,7 @@ const Header = styled.div`
     color: white;
     font-size: 12vw;
     text-align: center;
+    margin: 0px;
   }
 `
 
@@ -38,8 +39,9 @@ const InfoHeader = styled(Header)`
 `
 
 const InfoText = styled.h2`
-  font-size: min(5vw, 25px);
-  padding: 1vw 2vw;
+  font-size: min(5vw, 20px);
+  padding: 1vh 2vw;
+  margin: 0px;
 `
 
 const StyledFAI = styled(FontAwesomeIcon)`
@@ -121,9 +123,6 @@ class Town extends React.Component {
           </PostButton>
           {comments.map(comment => <Comment comment={comment} report={() => this.report(comment)}/>)}
         </Frame>
-        {/* town information */}
-        {/* comments section? */}
-        
       </>
     )
   }
