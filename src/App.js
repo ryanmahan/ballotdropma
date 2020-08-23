@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(process.env.API_URL)
+    console.log(process.env.REACT_APP_API)
     const { sessionId } = this.state;
 
     return (
