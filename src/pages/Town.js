@@ -33,16 +33,22 @@ const InfoHeader = styled(Header)`
   z-index: 1;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0% 80%);
   flex-direction: column;
+  display: flex;
+  height: 30vh;
 `
 
 const InfoText = styled.h2`
-  font-size: 5vw;
+  font-size: min(5vw, 25px);
   padding: 1vw 2vw;
 `
 
 const StyledFAI = styled(FontAwesomeIcon)`
   font-size: 5vw;
   margin-right: 2vw;
+`
+
+const PostButton = styled(Button)`
+  margin-top: 2vh;
 `
 
 class Town extends React.Component {
@@ -76,11 +82,13 @@ class Town extends React.Component {
 
   report = (comment) => {
     axios.patch(`/comments/report/${comment._id}`).then((res) => {
+      console.log(res)
       this.setState((oldState) => {
-        const index = oldState.comments.indexOf(res.data);
+        const index = oldState.comments.indexOf(comment);
         if (index !== -1) {
           const newComments = [...oldState.comments];
           newComments[index] = res.data;
+          console.log(newComments);
           return {
             comments: newComments
           }
@@ -104,12 +112,13 @@ class Town extends React.Component {
         </SneakyBackground>
         <Frame>
           <Input.TextArea
-            placeholder={`Know something we dont? Submit a comment for ${location.city}`}
+            rows="3"
+            placeholder={`Know something we dont? Submit a comment for ${location.city}. Please include sources for your information!`}
             onChange={({target: { value }}) => this.setState({ comment: value })}>
           </Input.TextArea>
-          <Button onClick={this.submitComment}>
+          <PostButton onClick={this.submitComment}>
             Post
-          </Button>
+          </PostButton>
           {comments.map(comment => <Comment comment={comment} report={() => this.report(comment)}/>)}
         </Frame>
         {/* town information */}

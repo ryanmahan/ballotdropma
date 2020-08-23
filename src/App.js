@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Layout } from "antd";
-import axios from "./utils/axiosInstance";
+import getSession from "./utils/session"
 import Landing from "./pages/Landing";
 import Town from "./pages/Town";
 import { SessionProvider } from "./components/SessionContext";
@@ -13,15 +13,7 @@ const { Content, Footer } = Layout;
 class App extends React.Component {
 
   state = {
-    sessionId: null,
-  }
-
-  componentDidMount () {
-    console.log("axios mount")
-    axios.get("/session").then((res) => {
-      console.log(res.data)
-      this.setState({ sessionId: res.data })
-    })
+    sessionId: getSession(),
   }
 
   render() {
