@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - ballot-drop-ma
+name: Build and deploy Node.js app to Azure Web App - ballot-drop-ui
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'ballot-drop-ma'
+        app-name: 'ballot-drop-ui'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_01780ad060d84d66b4d9aedeb03cfa0a }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_40002b0d92aa4d38b4df7cc01ff3d6ad }}
         package: ./build
