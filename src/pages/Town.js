@@ -2,7 +2,7 @@ import React from "react";
 import axios from "../utils/axiosInstance";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHome, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faEnvelope, faPhone, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import styled from "styled-components"
 import { Input, Button } from "antd";
 import Comment from "../components/Comment";
@@ -22,11 +22,12 @@ const Header = styled.div`
     font-size: 12vw;
     text-align: center;
     margin: 0px;
+    font-size: min(8vw, 70px);
   }
 `
 
 const SneakyBackground = styled.div`
-  background: linear-gradient(180deg, #99c8f5 85%, #F0F2F5 85%);
+  background: linear-gradient(180deg, #1163B1, #1163B1 15%, #99c8f5 15%, #99c8f5 85%, #F0F2F5 85%);
 `
 
 const InfoHeader = styled(Header)`
@@ -51,6 +52,11 @@ const StyledFAI = styled(FontAwesomeIcon)`
 
 const PostButton = styled(Button)`
   margin-top: 2vh;
+`
+
+const BackLink = styled.a`
+  color: white;
+  margin: 2vh 0vw 0vh 2vw;
 `
 
 class Town extends React.Component {
@@ -104,6 +110,7 @@ class Town extends React.Component {
     return (
       <>
         <SneakyBackground>
+          <BackLink href="/"><FontAwesomeIcon icon={faArrowLeft}/> Go Back</BackLink>
           <Header><h1>{location.city}</h1></Header>
           <InfoHeader>
             <InfoText><StyledFAI icon={faHome}/>{location.address}</InfoText>
