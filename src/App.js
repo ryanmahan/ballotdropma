@@ -15,6 +15,10 @@ const { Content, Footer } = Layout;
 
 class App extends React.Component {
 
+  componentDidMount() {
+    document.title = "Ballot Drop MA"
+  }
+
   state = {
     sessionId: getSession(),
   }
