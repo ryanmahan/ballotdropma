@@ -102,10 +102,6 @@ class Landing extends React.Component {
           </AutoComplete>
           <Button style={{marginLeft: "10px"}} onClick={this.townRedirectOnName}>Go</Button>
         </Center>
-        <Center>
-          <h2>Learn about mail in ballots</h2>
-          {/* arrow down indicating you should scroll */}
-        </Center>
         {/* the USPS is requesting that ballots are mailed back 15 days before November 3rd. */}
         {/* timeline of events? */}
         {/* Fraud rates? */}
