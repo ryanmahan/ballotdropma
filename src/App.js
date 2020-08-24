@@ -36,7 +36,7 @@ class App extends React.Component {
               </Router>
             </Content>
           </SessionProvider>
-          <Footer style={{ height: "5vh"}}>
+          <Footer style={{ height: "5vh", paddingLeft: "2vw" }}>
             Created By Ryan Mahan &nbsp;
             <a href="mailto:ryan@ballotdropma.com"><FontAwesomeIcon type={faEnvelope}/>Email Me</a>
             <a href="http://github.com/ryanmahan"><FontAwesomeIcon type={faGithub}/>&nbsp; My Github</a>
