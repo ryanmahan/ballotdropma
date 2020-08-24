@@ -39,13 +39,13 @@ const InfoHeader = styled(Header)`
 `
 
 const InfoText = styled.h2`
-  font-size: min(5vw, 20px);
+  font-size: min(5vw, 30px);
   padding: 1vh 2vw;
   margin: 0px;
 `
 
 const StyledFAI = styled(FontAwesomeIcon)`
-  font-size: 5vw;
+  font-size: min(5vw, 30px);
   margin-right: 2vw;
 `
 
@@ -84,7 +84,6 @@ class Town extends React.Component {
 
   report = (comment) => {
     axios.patch(`/comments/report/${comment._id}`).then((res) => {
-      console.log(res)
       this.setState((oldState) => {
         const index = oldState.comments.indexOf(comment);
         if (index !== -1) {
@@ -115,7 +114,7 @@ class Town extends React.Component {
         <Frame>
           <Input.TextArea
             rows="3"
-            placeholder={`Know something we dont? Submit a comment for ${location.city}. Please include sources for your information!`}
+            placeholder={`Know something we don't? Submit a comment for ${location.city}. Please include sources for your information!`}
             onChange={({target: { value }}) => this.setState({ comment: value })}>
           </Input.TextArea>
           <PostButton onClick={this.submitComment}>
