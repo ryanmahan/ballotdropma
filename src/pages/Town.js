@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "../utils/axiosInstance";
 import moment from "moment";
+import swearjar from "swearjar-extended";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHome, faEnvelope, faPhone, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import styled from "styled-components"
@@ -59,6 +60,14 @@ const BackLink = styled.a`
   margin: 2vh 0vw 0vh 2vw;
 `
 
+const Link = styled.a`
+  color: black;
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+  }
+`
+
 class Town extends React.Component {
   state = {
     location: {},
@@ -77,7 +86,7 @@ class Town extends React.Component {
 
   submitComment = () => {
     axios.post("/comments/", {
-      comment: this.state.comment,
+      comment: swearjar.censor(this.state.comment),
       location: this.props.match.params.id
     }).then((res) => {
       this.setState((oldState) => {
@@ -113,9 +122,24 @@ class Town extends React.Component {
           <BackLink href="/"><FontAwesomeIcon icon={faArrowLeft}/> Go Back</BackLink>
           <Header><h1>{location.city}</h1></Header>
           <InfoHeader>
-            <InfoText><StyledFAI icon={faHome}/>{location.address}</InfoText>
-            <InfoText><StyledFAI icon={faEnvelope}/><a href={`mailto:${location.email}`}>{location.email}</a></InfoText>
-            <InfoText><StyledFAI icon={faPhone}/><a href={`tel:${location.fax}`}>{location.fax}</a></InfoText>
+            <InfoText>
+              <Link target="_blank" href={`https://maps.google.com/?q=${location.address}, ${location.city}, MA`}>
+                <StyledFAI icon={faHome}/>
+                {location.address}
+              </Link>
+            </InfoText>
+            <InfoText>
+              <Link target="_blank" href={`mailto:${location.email}`}>
+                <StyledFAI icon={faEnvelope}/>
+                {location.email}
+              </Link>
+            </InfoText>
+            <InfoText>
+              <Link target="_blank" href={`tel:${location.fax}`}>
+                <StyledFAI icon={faPhone}/>
+                {location.fax}
+              </Link>
+            </InfoText>
           </InfoHeader>
         </SneakyBackground>
         <Frame>

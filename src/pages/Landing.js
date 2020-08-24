@@ -3,6 +3,7 @@ import {
   notification,
   AutoComplete,
   Select,
+  Button,
 } from "antd";
 import styled from "styled-components";
 import axios from "../utils/axiosInstance";
@@ -56,7 +57,7 @@ class Landing extends React.Component {
 
   townRedirectOnName = () => {
     const { town, locations } = this.state;
-    const filteredLocations = locations.filter(location => location.city === town)
+    const filteredLocations = locations.filter(location => location.city.toLowerCase() === town.toLowerCase())
     if (filteredLocations.length === 1) {
       const id = filteredLocations[0]._id;
       this.props.history.push(`/town/${id}`)
@@ -99,6 +100,7 @@ class Landing extends React.Component {
               ))
             }
           </AutoComplete>
+          <Button style={{marginLeft: "10px"}} onClick={this.townRedirectOnName}>Go</Button>
         </Center>
         <Center>
           <h2>Learn about mail in ballots</h2>
