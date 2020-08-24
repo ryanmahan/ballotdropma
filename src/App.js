@@ -31,17 +31,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Helmet>
-          <title>Ballot Drop MA</title>
-          <meta name="description" content="Find where to drop your mail in ballot off in Massachusetts"/>
-          <meta property="og:title" content="Ballot Drop MA"/>
-          <meta property="og:description" content="Find where to drop you ballot off in MA"/>
-          <meta property="og:image" content="https://www.ballotdropma.com/static/media/mail_sent.73b2475c.svg"/>
-          <meta property="og:url" content="http://www.ballotdropma.com/"></meta>
-          <meta property="og:title" content="Ballot Drop MA"/>
-          <meta property="og:description" content="Find where to drop you ballot off in MA"/>
-          <meta property="og:image" content="https://www.ballotdropma.com/static/media/mail_sent.73b2475c.svg"/>
-          <meta property="og:url" content="http://www.ballotdropma.com/"></meta>
-          <meta name="twitter:card" content="summary_large_image"></meta>
+          
         </Helmet>
         <Layout>
           <SessionProvider value={sessionId}>
