@@ -5,6 +5,9 @@ import getSession from "./utils/session"
 import Landing from "./pages/Landing";
 import Town from "./pages/Town";
 import { SessionProvider } from "./components/SessionContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import 'antd/dist/antd.css';
 import './styles/common.css';
 
@@ -35,7 +38,8 @@ class App extends React.Component {
           </SessionProvider>
           <Footer style={{ height: "5vh"}}>
             Created By Ryan Mahan &nbsp;
-            <a href="mailto:ryan@mahan.family">Email Me</a>
+            <a href="mailto:ryan@ballotdropma.com"><FontAwesomeIcon type={faEnvelope}/>Email Me</a>
+            <a href="http://github.com/ryanmahan"><FontAwesomeIcon type={faGithub}/>&nbsp; My Github</a>
           </Footer>
         </Layout>
       </div>
