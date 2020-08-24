@@ -32,7 +32,7 @@ class App extends React.Component {
       <div className="App">
         <Helmet>
           <title>Ballot Drop MA</title>
-          <meta name="description" content={"Find where to drop your mail in ballot off in Massachusetts"} />
+          <meta name="description" content="Find where to drop your mail in ballot off in Massachusetts"/>
           <meta property="og:title" content="Ballot Drop MA"/>
           <meta property="og:description" content="Find where to drop you ballot off in MA"/>
           <meta property="og:image" content="https://www.ballotdropma.com/static/media/mail_sent.73b2475c.svg"/>
