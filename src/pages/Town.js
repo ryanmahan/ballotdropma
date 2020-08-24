@@ -66,6 +66,10 @@ const Link = styled.a`
   &:hover {
     cursor: pointer;
   }
+
+  &::first-letter {
+    text-decoration: none;
+  }
 `
 
 class Town extends React.Component {
@@ -76,6 +80,7 @@ class Town extends React.Component {
   }
 
   componentDidMount () {
+    window.scrollTo(0, 0);
     axios.get(`/locations/${this.props.match.params.id}`).then(res => {
       this.setState({ location: res.data })
     })

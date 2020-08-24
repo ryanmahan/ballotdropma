@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Layout } from "antd";
+import Helmet from "react-helmet";
 import getSession from "./utils/session"
 import Landing from "./pages/Landing";
 import Town from "./pages/Town";
@@ -29,9 +30,21 @@ class App extends React.Component {
 
     return (
       <div className="App">
+        <Helmet>
+          <title>Ballot Drop MA</title>
+          <meta name="description" content={"Find where to drop your mail in ballot off in Massachusetts"} />
+          <meta property="og:title" content="Ballot Drop MA"/>
+          <meta property="og:description" content="Find where to drop you ballot off in MA"/>
+          <meta property="og:image" content="https://www.ballotdropma.com/static/media/mail_sent.73b2475c.svg"/>
+          <meta property="og:url" content="http://www.ballotdropma.com/"></meta>
+          <meta property="og:title" content="Ballot Drop MA"/>
+          <meta property="og:description" content="Find where to drop you ballot off in MA"/>
+          <meta property="og:image" content="https://www.ballotdropma.com/static/media/mail_sent.73b2475c.svg"/>
+          <meta property="og:url" content="http://www.ballotdropma.com/"></meta>
+        </Helmet>
         <Layout>
           <SessionProvider value={sessionId}>
-            <Content style={{ minHeight: "95vh"}}>
+            <Content style={{ minHeight: "94vh"}}>
               <Router>
                 <Switch>
                   <Route exact path="/town/:id" component={Town}/>
