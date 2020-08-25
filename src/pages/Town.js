@@ -8,6 +8,7 @@ import styled from "styled-components"
 import { Input, Button } from "antd";
 import Comment from "../components/Comment";
 import Frame from "../components/Frame";
+import { faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const Header = styled.div`
   background: #1163B1;
@@ -70,6 +71,15 @@ const Link = styled.a`
 
   &::first-letter {
     text-decoration: none;
+  }
+`
+
+const ShareIcon = styled(FontAwesomeIcon)`
+  font-size: 2vh;
+
+  &:hover {
+    cursor: pointer;
+    color: #1163B1;
   }
 `
 
@@ -154,9 +164,15 @@ class Town extends React.Component {
             placeholder={`Know something we don't? Submit a comment for ${location.city}. Please include sources for your information!`}
             onChange={({target: { value }}) => this.setState({ comment: value })}>
           </Input.TextArea>
-          <PostButton onClick={this.submitComment}>
-            Post
-          </PostButton>
+          <div style={{ display: "flex", justifyContent: "space-between"}}>
+            <PostButton onClick={this.submitComment}>
+              Post
+            </PostButton>
+            <p style={{marginTop: "2vh"}}>Let your friends know where to go!
+              <a href="http://twitter.com/intent/tweet?text=Find+out+where+to+drop+off+your+ballot+in+MA%21+http%3A%2F%2Fballotdropoffma.com"><ShareIcon style={{ margin: "0 0.5vw"}} icon={faTwitter}/></a>
+              <a href="http://facebook.com/sharer/sharer.php?u=http://ballotdropma.com&quote=Find+out+where+to+drop+off+your+ballot+in+MA"><ShareIcon icon={faFacebook}/></a>
+            </p>
+          </div>
           {comments.map(comment => <Comment comment={comment} report={() => this.report(comment)}/>)}
         </Frame>
       </>
