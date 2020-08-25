@@ -110,10 +110,10 @@ class Landing extends React.Component {
           <Button style={{marginLeft: "10px"}} onClick={this.townRedirectOnName}>Go</Button>
         </Center>
         <Center>
-          <h2>Quick Info about mail in voting</h2>
+          <h2>More info about mail in voting</h2>
         </Center>
           <InfoGrid>
-            <h3>Where can I apply for a mail-in ballot?</h3>
+            <h3>You can apply online for a mail in ballot.</h3>
             <p> <a target="_blank" href="https://www.sec.state.ma.us/ele/eleev/early-voting-by-mail.htm" >Right here.</a></p>
             <h3>USPS Suggests 15 days of travel time for ballots</h3>
             <p>
@@ -133,7 +133,7 @@ class Landing extends React.Component {
               For comparison, 3.3 million ballots were cast in 2016 alone.
             </p>
             <h3>More Questions?</h3>
-            <p>Contact your local election office. You can use this tool to find their contact info!</p>
+            <p>Contact your local election office. You can find their contact info by using this tool!</p>
           </InfoGrid>
       </Frame>
     )
