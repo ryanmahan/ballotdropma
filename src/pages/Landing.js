@@ -70,6 +70,14 @@ const FloatingArrow = styled(FontAwesomeIcon)`
   animation: ${bobbing} 2s linear infinite;
   align-self: center;
   margin: 0 auto;
+
+  @media(max-width: 640px) {
+    margin: 0 auto 10vh;
+  }
+
+  @media(max-width: 480px) {
+    margin: 5vh auto 12vh;
+  }
 `
 
 class Landing extends React.Component {
@@ -139,7 +147,7 @@ class Landing extends React.Component {
           </AutoComplete>
           <Button style={{marginLeft: "10px"}} onClick={this.townRedirectOnName}>Go</Button>
         </Center>
-        <Center style={{ marginTop: "18vh" }}>
+        <Center>
           <h2>More info about voting!</h2>
         </Center>
         <FloatingArrow icon={faArrowDown}/>
