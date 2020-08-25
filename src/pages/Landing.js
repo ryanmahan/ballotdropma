@@ -76,7 +76,7 @@ class Landing extends React.Component {
     const { locations } = this.state;
 
     return (
-      <Frame className="frame" style={{minHeight: "12"}}>
+      <Frame style={{minHeight: "12"}}>
         <Opener>
           <Headings>
             <h1>Your vote is important</h1>
