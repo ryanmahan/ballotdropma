@@ -41,6 +41,13 @@ const Center = styled.div`
   margin-top: 40px;
 `
 
+const InfoGrid = styled.div`
+  h3 {
+    color: #1163B1;
+    margin-bottom: 0.5em;
+  }
+`
+
 class Landing extends React.Component {
   state = {
     locations: [],
@@ -84,7 +91,7 @@ class Landing extends React.Component {
         </Headings>
         <Center>
           <AutoComplete
-            style={{width: "45vw"}}
+            style={{width: "45vw", fontSize: "16px"}}
             placeholder={"Enter a town"}
             filterOption={(inputValue, option) =>
               option.key.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
@@ -102,9 +109,26 @@ class Landing extends React.Component {
           </AutoComplete>
           <Button style={{marginLeft: "10px"}} onClick={this.townRedirectOnName}>Go</Button>
         </Center>
-        {/* the USPS is requesting that ballots are mailed back 15 days before November 3rd. */}
-        {/* timeline of events? */}
-        {/* Fraud rates? */}
+        <Center>
+          <h2>Quick Info about mail in voting</h2>
+        </Center>
+          <InfoGrid>
+            <h3>USPS Suggests 15 days of travel time for ballots</h3>
+            <p>
+              This means you need to mail your ballot before October 20th! Or look up your town on this site to find the best place 
+              to drop off you ballot to ensure it reaches your town or city's election offices safely.
+            </p>
+            <h3>You can track the status of your ballot online</h3>
+            <p>Introduced in August 2020, you can track 
+              <a href="https://www.sec.state.ma.us/wheredoivotema/track/trackmyballot.aspx">the status of your mail in ballot online.</a>
+            </p>
+            <h3>MA has had 4 cases of voter fraud since 2012</h3>
+            <p>
+              <a href="https://www.heritage.org/voterfraud/search?state=MA">According to the Heritage Foundation</a>,
+              there have been 4 cases of MA voter fraud since 2012. Two of which were absentee ballot related.
+              For comparison, 3.3 million ballots were cast in 2016 alone.
+            </p>
+          </InfoGrid>
       </Frame>
     )
   }
