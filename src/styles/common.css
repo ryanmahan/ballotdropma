@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .frame {
   margin: 3% 5%;
 }
@@ -11,9 +15,9 @@ h1 {
 }
 
 h2 {
-  font-size: min(4vw, 30px);
+  font-size: min(6vw, 30px);
 }
 
 h3 {
-  font-size: min(3vw, 22.5px);
+  font-size: min(5vw, 22.5px);
 }

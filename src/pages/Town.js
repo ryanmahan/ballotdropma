@@ -58,6 +58,7 @@ const PostButton = styled(Button)`
 const BackLink = styled.a`
   color: white;
   margin: 2vh 0vw 0vh 2vw;
+  font-size: min(4vw, 16px);
 `
 
 const Link = styled.a`

@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Layout } from "antd";
-import Helmet from "react-helmet";
 import getSession from "./utils/session"
 import Landing from "./pages/Landing";
 import Town from "./pages/Town";
@@ -30,9 +29,6 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Helmet>
-          
-        </Helmet>
         <Layout>
           <SessionProvider value={sessionId}>
             <Content style={{ minHeight: "94vh"}}>
@@ -46,8 +42,8 @@ class App extends React.Component {
           </SessionProvider>
           <Footer style={{ height: "5vh", paddingLeft: "2vw" }}>
             Created By Ryan Mahan &nbsp;
-            <a href="mailto:ryan@ballotdropma.com"><FontAwesomeIcon type={faEnvelope}/>Email Me</a>
-            <a href="http://github.com/ryanmahan"><FontAwesomeIcon type={faGithub}/>&nbsp; My Github</a>
+            <a href="mailto:ryan@ballotdropma.com"><FontAwesomeIcon icon={faEnvelope}/>&nbsp;Email</a>&nbsp;
+            <a href="http://github.com/ryanmahan"><FontAwesomeIcon icon={faGithub}/>&nbsp;Github</a>
           </Footer>
         </Layout>
       </div>

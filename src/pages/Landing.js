@@ -5,10 +5,12 @@ import {
   Select,
   Button,
 } from "antd";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import axios from "../utils/axiosInstance";
 import mail from "../images/mail_sent.svg"
 import Frame from "../components/Frame"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 const { Option } = Select;
 
@@ -42,17 +44,44 @@ const Center = styled.div`
 `
 
 const InfoGrid = styled.div`
+  margin-top: 5vh;
   h3 {
     color: #1163B1;
     margin-bottom: 0.5em;
+    font-size: min(6vw, 30px);
   }
 `
 
-class Landing extends React.Component {
-  state = {
-    locations: [],
-    town: "",
+const bobbing = keyframes`
+  from {
+    transform: translateY(0px);
   }
+  50% {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0px)
+  }
+`
+
+const FloatingArrow = styled(FontAwesomeIcon)`
+  display: block;
+  font-size: min(6vw, 30px);
+  animation: ${bobbing} 2s linear infinite;
+  align-self: center;
+  margin: 0 auto;
+`
+
+class Landing extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      locations: [],
+      town: "",
+    }
+  }
+  
 
   componentDidMount () {
     axios.get("/locations", {
@@ -70,6 +99,14 @@ class Landing extends React.Component {
       this.props.history.push(`/town/${id}`)
     }
     else notification.error({message: "Couldn't find a town with that name"});
+  }
+
+  focusAutoComplete = () => {
+    
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      const y = document.getElementById("autocomplete").offsetTop;
+      window.scrollTo(0, y + 50);
+     }
   }
 
   render() {
@@ -91,6 +128,8 @@ class Landing extends React.Component {
         </Headings>
         <Center>
           <AutoComplete
+            onFocus={this.focusAutoComplete}
+            id="autocomplete"
             style={{width: "45vw", fontSize: "16px"}}
             placeholder={"Enter a town"}
             filterOption={(inputValue, option) =>
@@ -109,12 +148,13 @@ class Landing extends React.Component {
           </AutoComplete>
           <Button style={{marginLeft: "10px"}} onClick={this.townRedirectOnName}>Go</Button>
         </Center>
-        <Center>
-          <h2>Quick Info about mail in voting</h2>
+        <Center style={{ marginTop: "18vh" }}>
+          <h2>More info about voting!</h2>
         </Center>
+        <FloatingArrow icon={faArrowDown}/>
           <InfoGrid>
             <h3>Where can I apply for a mail-in ballot?</h3>
-            <p> <a target="_blank" href="https://www.sec.state.ma.us/ele/eleev/early-voting-by-mail.htm" >Right here.</a></p>
+            <p> <a href="https://www.sec.state.ma.us/ele/eleev/early-voting-by-mail.htm" >Right here.</a></p>
             <h3>USPS Suggests 15 days of travel time for ballots</h3>
             <p>
               The USPS has <a href="https://about.usps.com/newsroom/national-releases/2020/0529-usps-provides-recommendations-for-successful-2020-election-mail-season.htm">sent letters to 46 states</a>
@@ -123,8 +163,8 @@ class Landing extends React.Component {
               to drop off you ballot to ensure it reaches your town or city's election offices safely.
             </p>
             <h3>You can track the status of your ballot online</h3>
-            <p>Introduced in August 2020, you can track &nbsp;
-              <a href="https://www.sec.state.ma.us/wheredoivotema/track/trackmyballot.aspx">the status of your mail in ballot online.</a>
+            <p>Recently introduced in August 2020, you can track&nbsp;
+              <a href="https://www.sec.state.ma.us/wheredoivotema/track/trackmyballot.aspx">the status of your mail in ballot on the Secretary of State website.</a>
             </p>
             <h3>MA has had 4 cases of voter fraud since 2012</h3>
             <p>
