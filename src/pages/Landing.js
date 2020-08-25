@@ -113,8 +113,8 @@ class Landing extends React.Component {
           <h2>More info about mail in voting</h2>
         </Center>
           <InfoGrid>
-            <h3>You can apply online for a mail in ballot.</h3>
-            <p> <a target="_blank" href="https://www.sec.state.ma.us/ele/eleev/early-voting-by-mail.htm" >Right here.</a></p>
+            <h3>You can apply online for a mail in ballot online.</h3>
+            <p><a href="https://www.sec.state.ma.us/ele/eleev/early-voting-by-mail.htm">Right here.</a></p>
             <h3>USPS Suggests 15 days of travel time for ballots</h3>
             <p>
               The USPS has <a href="https://about.usps.com/newsroom/national-releases/2020/0529-usps-provides-recommendations-for-successful-2020-election-mail-season.htm">sent letters to 46 states</a>
