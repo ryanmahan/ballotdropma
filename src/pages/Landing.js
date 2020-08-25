@@ -101,14 +101,6 @@ class Landing extends React.Component {
     else notification.error({message: "Couldn't find a town with that name"});
   }
 
-  focusAutoComplete = () => {
-    
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-      const y = document.getElementById("autocomplete").offsetTop;
-      window.scrollTo(0, y + 50);
-     }
-  }
-
   render() {
     const { locations } = this.state;
 
@@ -128,7 +120,6 @@ class Landing extends React.Component {
         </Headings>
         <Center>
           <AutoComplete
-            onFocus={this.focusAutoComplete}
             id="autocomplete"
             style={{width: "45vw", fontSize: "16px"}}
             placeholder={"Enter a town"}
