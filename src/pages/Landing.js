@@ -113,13 +113,17 @@ class Landing extends React.Component {
           <h2>Quick Info about mail in voting</h2>
         </Center>
           <InfoGrid>
+            <h3>Where can I apply for a mail-in ballot?</h3>
+            <p> <a target="_blank" href="https://www.sec.state.ma.us/ele/eleev/early-voting-by-mail.htm" >Right here.</a></p>
             <h3>USPS Suggests 15 days of travel time for ballots</h3>
             <p>
-              This means you need to mail your ballot before October 20th! Or look up your town on this site to find the best place 
+              The USPS has <a href="https://about.usps.com/newsroom/national-releases/2020/0529-usps-provides-recommendations-for-successful-2020-election-mail-season.htm">sent letters to 46 states</a>
+              &nbsp;reccommending 15 days of travel time for ballots to reach election offices.
+              <strong>This means you would need to mail your ballot before October 20th</strong>! Or look up your town on this site to find the best place 
               to drop off you ballot to ensure it reaches your town or city's election offices safely.
             </p>
             <h3>You can track the status of your ballot online</h3>
-            <p>Introduced in August 2020, you can track 
+            <p>Introduced in August 2020, you can track &nbsp;
               <a href="https://www.sec.state.ma.us/wheredoivotema/track/trackmyballot.aspx">the status of your mail in ballot online.</a>
             </p>
             <h3>MA has had 4 cases of voter fraud since 2012</h3>
@@ -128,6 +132,8 @@ class Landing extends React.Component {
               there have been 4 cases of MA voter fraud since 2012. Two of which were absentee ballot related.
               For comparison, 3.3 million ballots were cast in 2016 alone.
             </p>
+            <h3>More Questions?</h3>
+            <p>Contact your local election office. You can use this tool to find their contact info!</p>
           </InfoGrid>
       </Frame>
     )
