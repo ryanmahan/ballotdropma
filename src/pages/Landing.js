@@ -105,7 +105,7 @@ class Landing extends React.Component {
     const { locations } = this.state;
 
     return (
-      <Frame className="frame" style={{minHeight: "12"}}>
+      <Frame style={{minHeight: "12"}}>
         <Opener>
           <Headings>
             <h1>Your vote is important</h1>
@@ -144,8 +144,8 @@ class Landing extends React.Component {
         </Center>
         <FloatingArrow icon={faArrowDown}/>
           <InfoGrid>
-            <h3>Where can I apply for a mail-in ballot?</h3>
-            <p> <a href="https://www.sec.state.ma.us/ele/eleev/early-voting-by-mail.htm" >Right here.</a></p>
+            <h3>You can apply online for a mail in ballot online.</h3>
+            <p><a href="https://www.sec.state.ma.us/ele/eleev/early-voting-by-mail.htm">Right here.</a></p>
             <h3>USPS Suggests 15 days of travel time for ballots</h3>
             <p>
               The USPS has <a href="https://about.usps.com/newsroom/national-releases/2020/0529-usps-provides-recommendations-for-successful-2020-election-mail-season.htm">sent letters to 46 states</a>
@@ -164,7 +164,7 @@ class Landing extends React.Component {
               For comparison, 3.3 million ballots were cast in 2016 alone.
             </p>
             <h3>More Questions?</h3>
-            <p>Contact your local election office. You can use this tool to find their contact info!</p>
+            <p>Contact your local election office. You can find their contact info by using this tool!</p>
           </InfoGrid>
       </Frame>
     )
