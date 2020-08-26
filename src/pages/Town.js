@@ -95,7 +95,7 @@ class Town extends React.Component {
     axios.get(`/locations/${this.props.match.params.id}`).then(res => {
       this.setState({ location: res.data })
     })
-    axios.get('/comments/', { location: this.props.match.params.id }).then(res => {
+    axios.get('/comments/', { params: { query: { location: this.props.match.params.id }}}).then(res => {
       this.setState({ comments: res.data.sort((a, b) => moment(b.created) - moment(a.created))})
     })
   }
