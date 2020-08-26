@@ -64,13 +64,8 @@ const BackLink = styled.a`
 
 const Link = styled.a`
   color: black;
-  text-decoration: underline;
   &:hover {
     cursor: pointer;
-  }
-
-  &::first-letter {
-    text-decoration: none;
   }
 `
 
@@ -139,19 +134,19 @@ class Town extends React.Component {
           <Header><h1>{location.city}</h1></Header>
           <InfoHeader>
             <InfoText>
-              <Link target="_blank" href={`https://maps.google.com/?q=${location.address}, ${location.city}, MA`}>
+              <Link href={`https://maps.google.com/?q=${location.address}, ${location.city}, MA`}>
                 <StyledFAI icon={faHome}/>
                 {location.address}
               </Link>
             </InfoText>
             <InfoText>
-              <Link target="_blank" href={`mailto:${location.email}`}>
+              <Link href={`mailto:${location.email}`}>
                 <StyledFAI icon={faEnvelope}/>
                 {location.email}
               </Link>
             </InfoText>
             <InfoText>
-              <Link target="_blank" href={`tel:${location.fax}`}>
+              <Link href={`tel:${location.fax}`}>
                 <StyledFAI icon={faPhone}/>
                 {location.fax}
               </Link>

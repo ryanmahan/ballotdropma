@@ -165,6 +165,8 @@ class Landing extends React.Component {
             <p>Recently introduced in August 2020, you can track&nbsp;
               <a href="https://www.sec.state.ma.us/wheredoivotema/track/trackmyballot.aspx">the status of your mail in ballot on the Secretary of State website.</a>
             </p>
+            <h3>You must drop your ballot off in your town's drop box</h3>
+            <p>Most ballot drop boxes are either the elections office or go directly to your town's elections office. To make sure your ballot ends up in the right hands, drop it off in the town you're registered to vote in.</p>
             <h3>MA has had 4 cases of voter fraud since 2012</h3>
             <p>
               <a href="https://www.heritage.org/voterfraud/search?state=MA">According to the Heritage Foundation</a>,
