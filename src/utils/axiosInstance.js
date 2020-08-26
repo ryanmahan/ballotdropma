@@ -6,10 +6,14 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use(config => {
-  config.params = {
-   session: getSession(),
-    ...config.params,
-  };
+  console.log(config)
+  if (["get", "post", "put", "patch"].includes(config.method)) {
+    config.params = {
+    session: getSession(),
+      ...config.params,
+    };
+    console.log(config)
+  }
   return config;
 });
 
